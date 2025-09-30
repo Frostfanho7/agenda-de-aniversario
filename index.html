@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Agenda de Aniversariantes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>🎂 Agenda de Aniversariantes</h1>
+    <nav>
+      <button class="tab-btn active" data-tab="cadastro">Cadastrar</button>
+      <button class="tab-btn" data-tab="consulta">Consultar</button>
+    </nav>
+  </header>
+
+  <main>
+    <div id="success-message" style="display: none; background: #2ecc71; color: white; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px;">
+        Aniversariante cadastrado com sucesso! 🎉
+    </div>
+
+    <section id="cadastro" class="tab-content card active">
+      <h2>Cadastrar Aniversariante</h2>
+      <form id="formCadastro">
+        <label for="name">Nome:</label>
+        <input id="name" type="text" name="name" required>
+        <span class="error-msg" id="error-name"></span>
+
+        <label for="email">E-mail:</label>
+        <input id="email" type="email" name="email" required>
+        <span class="error-msg" id="error-email"></span>
+
+        <label for="password">Senha:</label>
+        <input id="password" type="password" name="password" required minlength="6">
+        <span class="error-msg" id="error-password"></span>
+
+        <label for="confirm-password">Confirmar Senha:</label>
+        <input id="confirm-password" type="password" name="confirm-password" required minlength="6">
+        <span class="error-msg" id="error-confirm-password"></span>
+
+        <label for="birthdate">Data de Nascimento:</label>
+        <input id="birthdate" type="date" name="birthdate" required>
+        <span class="error-msg" id="error-birthdate"></span>
+
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <section id="consulta" class="tab-content card">
+      <h2>Consultar Aniversariantes</h2>
+      <div class="consulta-menu">
+        <label for="search">Procurar por nome:</label>
+        <input id="search" type="search" placeholder="Digite um nome...">
+
+        <label for="filter-month">Filtrar por mês:</label>
+        <select id="filter-month">
+          <option value="all">Todos</option>
+          <option value="1">Janeiro</option><option value="2">Fevereiro</option>
+          <option value="3">Março</option><option value="4">Abril</option>
+          <option value="5">Maio</option><option value="6">Junho</option>
+          <option value="7">Julho</option><option value="8">Agosto</option>
+          <option value="9">Setembro</option><option value="10">Outubro</option>
+          <option value="11">Novembro</option><option value="12">Dezembro</option>
+        </select>
+      </div>
+
+      <ul id="birthday-list" class="birthday-list"></ul>
+      <p id="empty-msg" class="muted">Nenhum aniversariante encontrado.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
